@@ -238,5 +238,5 @@ app.use((req, res, next) => {
 });
 
 var server = app.listen(process.env.PORT || 3000, function () { 
-    console.log(`Server running on http://localhost:${port}`);// Konzolra kiír egy üzenetet, hogy a szerver fut és melyik porton érhető el.
+    console.log(`Server running on http://localhost:${process.env.PORT}`);// Konzolra kiír egy üzenetet, hogy a szerver fut és melyik porton érhető el.
 });
