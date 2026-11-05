@@ -1,9 +1,5 @@
 module.exports = (objRep) => (req, res, next) => {
-    const monkeyId = objRep.monkeys[res.locals.monkeyIndex].id;
-    for (let i = objRep.bananas.length - 1; i >= 0; i--) {
-        if (objRep.bananas[i].monkeyId === monkeyId) {
-            objRep.bananas.splice(i, 1);
-        }
-    }
-    return next();
+    const deletedMonkeyById = objRep.monkeys[res.locals.monkeyIndex];
+    objRep.monkeys.splice(res.locals.monkeyIndex, 1);
+    return res.status(200).json({ deletedMonkeyById });
 };
