@@ -1,5 +1,4 @@
 const getMonkeys = require('../middleware/monkey/getMonkeys');
-const getMonkeyIndex = require('../middleware/monkey/getMonkeyIndex');
 const getMonkey = require('../middleware/monkey/getMonkey');
 const createMonkey = require('../middleware/monkey/createMonkey');
 const updateMonkey = require('../middleware/monkey/updateMonkey');
@@ -33,8 +32,8 @@ const addRoutes = (app) => {
     app.get('/monkey', getMonkeys(objRep));
     app.post('/monkey', createMonkey(objRep));
     app.get('/monkey/:id', getMonkey(objRep));
-    app.delete('/monkey/:id', getMonkeyIndex(objRep), deleteMonkeyBananas(objRep), deleteMonkey(objRep));
-    app.patch('/monkey/:id', getMonkeyIndex(objRep), updateMonkey(objRep));
+    app.delete('/monkey/:id', getMonkey(objRep), deleteMonkeyBananas(objRep), deleteMonkey(objRep));
+    app.patch('/monkey/:id', getMonkey(objRep), updateMonkey(objRep));
 
     app.get('/banana', getBananas(objRep));
     app.post('/banana', createBanana(objRep));
